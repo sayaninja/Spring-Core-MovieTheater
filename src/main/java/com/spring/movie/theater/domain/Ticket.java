@@ -1,40 +1,18 @@
 package com.spring.movie.theater.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Value;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+@Value
+@AllArgsConstructor
 public class Ticket extends DomainObject implements Comparable<Ticket> {
 
-    private User user;
-
-    private Event event;
-
-    private LocalDateTime dateTime;
-
-    private long seat;
-
-    public Ticket(User user, Event event, LocalDateTime dateTime, long seat) {
-        this.user = user;
-        this.event = event;
-        this.dateTime = dateTime;
-        this.seat = seat;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public Event getEvent() {
-        return event;
-    }
-
-    public LocalDateTime getDateTime() {
-        return dateTime;
-    }
-
-    public long getSeat() {
-        return seat;
-    }
+    User user;
+    Event event;
+    LocalDateTime dateTime;
+    long seat;
 
     @Override
     public int hashCode() {

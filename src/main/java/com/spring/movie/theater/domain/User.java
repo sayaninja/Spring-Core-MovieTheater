@@ -14,7 +14,7 @@ public class User extends DomainObject {
     String firstName;
     String lastName;
     String email;
-    NavigableSet<Ticket> tickets = new TreeSet<>();
+    NavigableSet<Ticket> tickets;
 
     @Override
     public int hashCode() {

@@ -1,8 +1,8 @@
-package com.spring.movie.theater.dao.local;
+package com.spring.movie.theater.impl;
 
 import org.junit.Test;
 
-public class LocalAuditoriumDaoTest {
+public class DefaultAuditoriumServiceTest {
 
     @Test
     public void getAll() {

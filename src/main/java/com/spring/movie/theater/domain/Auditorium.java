@@ -15,8 +15,6 @@ public class Auditorium {
     private long numberOfSeats;
     private Set<Long> vipSeats = Collections.emptySet();
 
-    public Auditorium() {}
-
     /**
      * Counts how many vip seats are there in supplied <code>seats</code>
      * 
