@@ -1,4 +1,4 @@
-package com.spring.movie.theater;
+package com.spring.movie.theater.domain;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.TreeSet;
 
 import com.spring.movie.theater.domain.Auditorium;
 import com.spring.movie.theater.domain.Event;
@@ -13,16 +14,18 @@ import com.spring.movie.theater.domain.EventRating;
 import org.junit.Before;
 import org.junit.Test;
 
-public class TestEvent {
+public class EventTest {
 
 	private Event event;
 
 	@Before
 	public void initEvent() {
-		event = new Event();
-		event.setBasePrice(1.1);
-		event.setName("aaa");
-		event.setRating(EventRating.HIGH);
+		event = Event.builder()
+				.basePrice(1.1)
+				.name("aaa")
+				.rating(EventRating.HIGH)
+                .airDates(new TreeSet<>())
+				.build();
 	
 		LocalDateTime now = LocalDateTime.now();
 		

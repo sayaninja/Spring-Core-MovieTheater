@@ -5,5 +5,26 @@
  		http://www.springframework.org/schema/beans
  		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
 
+    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>file:src/main/resources/aud1.properties</value>
+            </list>
+        </property>
+        <property name="ignoreResourceNotFound" value="true"/>
+    </bean>
+    <bean id="localAuditoriumDao" class="com.spring.movie.theater.dao.local.LocalAuditoriumDao">
+        <property name="auditoriums">
+            <set>
+                <ref bean="aud1"/>
+            </set>
+        </property>
+    </bean>
+    
+    <bean id="aud1" class="com.spring.movie.theater.domain.Auditorium">
+        <property name="name" value="${name}" />
+        <property name="numberOfSeats" value="${numberOfSeats}"/>
+    </bean>
     <bean id="localUserDao" class="com.spring.movie.theater.dao.local.LocalUserDao"/>
+    <bean id="localEventDao" class="com.spring.movie.theater.dao.local.LocalEventDao"/>
 </beans>

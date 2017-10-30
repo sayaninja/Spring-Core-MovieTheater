@@ -1,4 +1,4 @@
-package com.spring.movie.theater;
+package com.spring.movie.theater.domain;
 
 import static org.junit.Assert.assertEquals;
 
@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 import com.spring.movie.theater.domain.Auditorium;
 import org.junit.Test;
 
-public class TestAuditorium {
+public class AuditoriumTest {
 	
 	@Test
 	public void testCountVips() {

@@ -1,52 +1,20 @@
 package com.spring.movie.theater.domain;
 
 import lombok.Builder;
+import lombok.Data;
+import lombok.Value;
 import java.util.NavigableSet;
 import java.util.Objects;
 import java.util.TreeSet;
 
+@Data
 @Builder
 public class User extends DomainObject {
 
-    private String firstName;
-
-    private String lastName;
-
-    private String email;
-
-    private NavigableSet<Ticket> tickets = new TreeSet<>();
-
-//    public String getFirstName() {
-//        return firstName;
-//    }
-//
-//    public void setFirstName(String firstName) {
-//        this.firstName = firstName;
-//    }
-//
-//    public String getLastName() {
-//        return lastName;
-//    }
-//
-//    public void setLastName(String lastName) {
-//        this.lastName = lastName;
-//    }
-//
-//    public String getEmail() {
-//        return email;
-//    }
-//
-//    public void setEmail(String email) {
-//        this.email = email;
-//    }
-//
-//    public NavigableSet<Ticket> getTickets() {
-//        return tickets;
-//    }
-//
-//    public void setTickets(NavigableSet<Ticket> tickets) {
-//        this.tickets = tickets;
-//    }
+    String firstName;
+    String lastName;
+    String email;
+    NavigableSet<Ticket> tickets = new TreeSet<>();
 
     @Override
     public int hashCode() {

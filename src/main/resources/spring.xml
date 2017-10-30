@@ -8,5 +8,6 @@
 
     <bean id="main" class="MovieTheaterMain">
         <constructor-arg ref="localUserDao"/>
+        <constructor-arg ref="localEventDao"/>
     </bean>
 </beans>

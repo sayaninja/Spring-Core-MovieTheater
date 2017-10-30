@@ -12,39 +12,45 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class LocalUserDao implements UserService {
 
     private static final AtomicInteger AUTO_ID = new AtomicInteger(0);
-    private Map<Long, User> userDao;
+    private Map<Long, User> userMap;
 
     public LocalUserDao() {
-        this.userDao = new HashMap<>();
+        this.userMap = new HashMap<>();
     }
 
     @Nullable
     @Override
     public User getUserByEmail(@Nonnull String email) {
+        for (User user: userMap.values()) {
+            if (user.getEmail().equals(email)) {
+                return user;
+            }
+        }
         return null;
     }
 
     @Override
     public User save(@Nonnull User user) {
-        long id = (long) AUTO_ID.getAndIncrement();
-        user.setId(id);
-        userDao.put(id, user);
+        if (null == user.getId()) {
+            user.setId((long) AUTO_ID.getAndIncrement());
+        }
+        userMap.put(user.getId(), user);
         return user;
     }
 
     @Override
-    public void remove(@Nonnull User object) {
-
+    public void remove(@Nonnull User user) {
+        userMap.remove(user.getId());
     }
 
     @Override
     public User getById(@Nonnull Long id) {
-        return null;
+        return userMap.get(id);
     }
 
     @Nonnull
     @Override
     public Collection<User> getAll() {
-        return null;
+        return userMap.values();
     }
 }
