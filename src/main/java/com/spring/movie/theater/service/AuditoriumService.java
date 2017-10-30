@@ -1,20 +1,21 @@
 package com.spring.movie.theater.service;
 
-import java.util.Set;
+import java.util.Collection;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.spring.movie.theater.domain.Auditorium;
 
-public interface AuditoriumService {
+public interface AuditoriumService extends AbstractDomainObjectService<Auditorium> {
 
     /**
      * Getting all auditoriums from the system
      * 
      * @return set of all auditoriums
      */
-    @Nonnull Set<Auditorium> getAll();
+    @Nonnull
+    Collection<Auditorium> getAll();
 
     /**
      * Finding auditorium by name
@@ -22,6 +23,7 @@ public interface AuditoriumService {
      * @param name Name of the auditorium
      * @return found auditorium or <code>null</code>
      */
-    @Nullable Auditorium getByName(@Nonnull String name);
+    @Nullable
+    Auditorium getByName(@Nonnull String name);
 
 }

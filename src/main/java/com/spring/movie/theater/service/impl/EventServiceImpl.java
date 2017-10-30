@@ -1,4 +1,4 @@
-package com.spring.movie.theater.dao.local;
+package com.spring.movie.theater.service.impl;
 
 import com.spring.movie.theater.domain.Event;
 import com.spring.movie.theater.service.EventService;
@@ -7,28 +7,12 @@ import javax.annotation.Nullable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.atomic.AtomicInteger;
 
-public class LocalEventDao implements EventService {
-
-    private static final AtomicInteger AUTO_ID = new AtomicInteger(0);
-    private Map<Long, Event> eventMap;
-
-    public LocalEventDao() {
-        this.eventMap = new HashMap<>();
-    }
-
+public class EventServiceImpl implements EventService {
     @Nullable
     @Override
     public Event getByName(@Nonnull String name) {
-        for (Event event: eventMap.values()) {
-            if (event.getName().equals(name)) {
-                return event;
-            }
-        }
         return null;
     }
 
@@ -46,26 +30,22 @@ public class LocalEventDao implements EventService {
 
     @Override
     public Event save(@Nonnull Event event) {
-        if (null == event.getId()) {
-            event.setId((long) AUTO_ID.getAndIncrement());
-        }
-        eventMap.put(event.getId(), event);
-        return event;
+        return null;
     }
 
     @Override
     public void remove(@Nonnull Event event) {
-        eventMap.remove(event.getId());
+
     }
 
     @Override
     public Event getById(@Nonnull Long id) {
-        return eventMap.get(id);
+        return null;
     }
 
     @Nonnull
     @Override
     public Collection<Event> getAll() {
-        return eventMap.values();
+        return null;
     }
 }

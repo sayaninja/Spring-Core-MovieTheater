@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 import java.util.stream.LongStream;
 
 @Data
-public class Auditorium {
+public class Auditorium extends DomainObject {
 
     private String name;
     private long numberOfSeats;

@@ -25,6 +25,7 @@
         <property name="name" value="${name}" />
         <property name="numberOfSeats" value="${numberOfSeats}"/>
     </bean>
-    <bean id="localUserDao" class="com.spring.movie.theater.dao.local.LocalUserDao"/>
-    <bean id="localEventDao" class="com.spring.movie.theater.dao.local.LocalEventDao"/>
+    <bean id="userDao" class="com.spring.movie.theater.dao.local.UserDaoImpl"/>
+    <bean id="eventDao" class="com.spring.movie.theater.dao.local.EventDaoImpl"/>
+    <bean id="auditoriumDao" class="com.spring.movie.theater.dao.local.AuditoriumDaoImpl"/>
 </beans>

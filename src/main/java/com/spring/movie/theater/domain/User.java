@@ -2,10 +2,10 @@ package com.spring.movie.theater.domain;
 
 import lombok.Builder;
 import lombok.Data;
-import lombok.Value;
+import java.time.LocalDateTime;
 import java.util.NavigableSet;
 import java.util.Objects;
-import java.util.TreeSet;
+import java.util.Optional;
 
 @Data
 @Builder
@@ -15,6 +15,7 @@ public class User extends DomainObject {
     String lastName;
     String email;
     NavigableSet<Ticket> tickets;
+    LocalDateTime birthday;
 
     @Override
     public int hashCode() {
@@ -57,4 +58,7 @@ public class User extends DomainObject {
         return true;
     }
 
+    public Optional<LocalDateTime> getBirthday() {
+        return Optional.ofNullable(birthday);
+    }
 }

@@ -12,9 +12,9 @@ import static junit.framework.TestCase.assertNull;
 import static org.junit.Assert.assertEquals;
 
 // TODO: test unahppy cases
-public class LocalEventDaoTest {
+public class EventDaoTest {
 
-    LocalEventDao eventDao;
+    EventDaoImpl eventDao;
     String name = "SuperBowl";
     double basePrice = 1.0;
     EventRating rating = EventRating.HIGH;
@@ -28,7 +28,7 @@ public class LocalEventDaoTest {
 
     @Before
     public void setUp() {
-        eventDao = new LocalEventDao();
+        eventDao = new EventDaoImpl();
     }
 
     @Test
@@ -53,7 +53,7 @@ public class LocalEventDaoTest {
         eventDao.save(testEvent);
         assertNotNull(eventDao.getByName(name));
         eventDao.remove(testEvent);
-        assertNull(eventDao.getByName(name));
+        assertNull(eventDao.getById(testEvent.getId()));
     }
 
     @Test

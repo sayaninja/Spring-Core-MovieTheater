@@ -7,9 +7,9 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 // TODO: Test unhappy cases
-public class LocalUserDaoTest {
+public class UserDaoTest {
 
-    LocalUserDao userDao;
+    UserDaoImpl userDao;
     String firstName = "John";
     String lastName = "Smith";
     String email = "john@gmail.com";
@@ -21,7 +21,7 @@ public class LocalUserDaoTest {
 
     @Before
     public void setUp() {
-        userDao = new LocalUserDao();
+        userDao = new UserDaoImpl();
     }
 
     @Test
@@ -39,7 +39,7 @@ public class LocalUserDaoTest {
         userDao.save(testUser);
         assertNotNull(userDao.getUserByEmail(email));
         userDao.remove(testUser);
-        assertNull(userDao.getUserByEmail(email));
+        assertNull(userDao.getById(testUser.getId()));
     }
 
     @Test
@@ -60,5 +60,7 @@ public class LocalUserDaoTest {
         testUser.setId(333L);
         userDao.save(testUser);
         assertEquals(3, userDao.getAll().size());
+
+        userDao.remove(testUser);
     }
 }

@@ -1,5 +1,5 @@
-import com.spring.movie.theater.dao.local.LocalEventDao;
-import com.spring.movie.theater.dao.local.LocalUserDao;
+import com.spring.movie.theater.dao.local.EventDaoImpl;
+import com.spring.movie.theater.dao.local.UserDaoImpl;
 import com.spring.movie.theater.domain.Auditorium;
 import com.spring.movie.theater.domain.Event;
 import com.spring.movie.theater.domain.User;
@@ -16,8 +16,8 @@ public class MovieTheaterMain {
      * If in admin mode, needs to enter password: admin
      */
     //private String userMode = "customer";
-    private LocalUserDao localUserDao;
-    private LocalEventDao localEventDao;
+    private UserDaoImpl localUserDao;
+    private EventDaoImpl localEventDao;
 
     public void saveUser(User user) {
         localUserDao.save(user);
